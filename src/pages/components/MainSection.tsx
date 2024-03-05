@@ -16,16 +16,16 @@ const MainSection = () => {
     window.location.href = mailtoLink
   }
   return (
-    <section className='flex justify-between flex-col '>
-      <div className='flex flex-col gap-5 justify-center items-center lg:items-start h-96 mb-24 md:mb-16 lg:mb-10'>
-        <h1 className='text-white mb-4 text-4xl lg:text-6xl font-bold text-center lg:text-start'>
+    <section className='flex justify-between flex-col w-full mx-auto px-10 py-6 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-gradient-to-br from-purple to-pink relative '>
+      <div className='flex flex-col gap-5 justify-center items-center lg:items-start h-section lg:h-screen mb-24 md:mb-16 lg:mb-10'>
+        <h1 className='text-white mb-4 text-title lg:text-6xl font-bold text-center lg:text-start'>
           Caiera Dev
           <span>
             <TypeAnimation
               sequence={[', Inovação Agora', 1000]}
               wrapper='span'
               speed={50}
-              className='text-4xl lg:text-6xl'
+              className='text-title lg:text-6xl'
               repeat={Infinity}
             />
           </span>
@@ -37,7 +37,7 @@ const MainSection = () => {
         <Button
           variant='contained'
           onClick={handleEmailClick}
-          className='normal-case text-black max-w-52 h-12 bg-white hover:bg-slate-100'
+          className='normal-case text-black max-w-52 h-12 font-bold rounded-sm bg-white hover:bg-slate-100'
         >
           Faça um orçamento
         </Button>

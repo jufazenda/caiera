@@ -25,6 +25,16 @@ const config: Config = {
         xl: '1500px',
         '2xl': '2000px',
       },
+      height: {
+        section: '70vh',
+      },
+      fontSize: {
+        title: '2.5rem',
+      },
+      maxWidth: {
+        '30%': '30%',
+        '50%': '50%',
+      },
     },
   },
   plugins: [],

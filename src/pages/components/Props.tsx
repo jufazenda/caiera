@@ -6,3 +6,9 @@ export interface PropsNavLink {
 export interface PropsMenuOpen {
   links: PropsNavLink[]
 }
+
+export interface PropsServiceInfo {
+  type: string
+  title: string
+  text: string
+}
