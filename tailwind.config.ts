@@ -20,6 +20,7 @@ const config: Config = {
       },
       screens: {
         sm: '640px',
+        'sm-xl': '700px',
         md: '900px',
         lg: '1200px',
         xl: '1500px',
@@ -27,6 +28,8 @@ const config: Config = {
       },
       height: {
         section: '70vh',
+        500: '500px',
+        400: '400px',
       },
       fontSize: {
         title: '2.5rem',

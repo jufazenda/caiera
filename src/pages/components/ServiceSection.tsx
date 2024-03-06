@@ -1,5 +1,8 @@
 import React from 'react'
 import ServiceInfo from './ServiceInfos'
+import ServiceNumbers from './ServiceNumbers'
+import MyCarousel from './ServiceCarousel'
+import ServiceCarousel from './ServiceCarousel'
 
 const infos = [
   {
@@ -19,11 +22,18 @@ const infos = [
   },
 ]
 
+const numbers = [
+  { number: '+12k', text: 'Requisições Diárias' },
+  { number: '+20', text: 'Clientes Satisfeitos' },
+  { number: '4', text: 'Anos de Experiência' },
+  { number: '24h', text: 'Suporte' },
+]
+
 const ServiceSection = () => {
   return (
     <section className='w-full mx-auto px-12 py-6 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-white'>
-      <div className='flex justify-center flex-col items-center lg:items-start lg:h-screen my-20 md:my-16 lg:my-0 gap-20 text-dark'>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36 w-f'>
+      <div className='flex justify-center flex-col items-center lg:items-start lg:h-section w-full my-20 md:my-16 lg:my-0 gap-20 text-dark'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36 w-full'>
           {infos.map((info, index) => (
             <ServiceInfo
               type={info.type}
@@ -33,8 +43,18 @@ const ServiceSection = () => {
             />
           ))}
         </div>
-        <div></div>
-        <div></div>
+        <div className='grid grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-36 w-full'>
+          {numbers.map((number, index) => (
+            <ServiceNumbers
+              number={number.number}
+              text={number.text}
+              key={index}
+            />
+          ))}
+        </div>
+      </div>
+      <div className='w-full '>
+        <ServiceCarousel />
       </div>
     </section>
   )

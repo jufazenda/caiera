@@ -12,3 +12,7 @@ export interface PropsServiceInfo {
   title: string
   text: string
 }
+export interface PropsServiceNumbers {
+  number: string
+  text: string
+}
