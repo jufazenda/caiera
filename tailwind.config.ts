@@ -17,6 +17,7 @@ const config: Config = {
         purple: '#4568dc',
         pink: '#b06ab3',
         dark: '#141E42',
+        'shadow-black': 'rgb(20, 30, 66,0.5)',
       },
       screens: {
         sm: '640px',

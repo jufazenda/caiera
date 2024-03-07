@@ -8,15 +8,31 @@ import { IconButton } from '@mui/material'
 import MenuOpen from '../atoms/MenuOpen'
 
 const navLinks = [
-  { title: 'Sobre', href: '/#sobre' },
-  { title: 'Serviços', href: '/#servicos' },
-  { title: 'Contato', href: '/#contato' },
-  { title: 'Newsletter', href: '/#newsletter' },
+  { title: 'Sobre', href: '/#sobre', sectionId: 'sobre' },
+  { title: 'Serviços', href: '/#servicos', sectionId: 'servicos' },
+  { title: 'Contato', href: '/#contato', sectionId: 'contato' },
+  { title: 'Newsletter', href: '/#newsletter', sectionId: 'newsletter' },
 ]
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
-  const [headerBgColor, setHeaderBgColor] = useState('transparent')
+  const [header, setHeader] = useState(false)
+
+  const scrollHeader = () => {
+    if (window.scrollY >= 100) {
+      setHeader(true)
+    } else {
+      setHeader(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader)
+
+    return () => {
+      window.addEventListener('scroll', scrollHeader)
+    }
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,33 +46,13 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const [headerTextColor, setHeaderTextColor] = useState('text-white') // Altere a cor do texto conforme necessário
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section')
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect()
-        if (rect.top <= 0 && rect.bottom >= 0) {
-          // Section is in view
-          const bgColor = section.dataset.bgColor
-          const textColor = section.dataset.textColor
-          if (bgColor) {
-            setHeaderBgColor(bgColor)
-            setHeaderTextColor(textColor || 'text-white') // Defina uma cor de texto padrão se não houver especificada na seção
-          }
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <nav
-      className={` w-full fixed z-20 top-0 px-12 md:px-24  lg:px-48 `}
-      style={{ backgroundColor: headerBgColor }}
+      className={
+        header
+          ? 'bg-shadow-black w-full fixed z-20 top-0 px-12 md:px-24 lg:px-48 transition-colors duration-400'
+          : 'bg-transparent w-full fixed z-20 top-0 px-12 md:px-24 lg:px-48 transition-colors duration-400'
+      }
     >
       <div className='flex flex-wrap items-center justify-between mx-auto py-8'>
         <Link href={'/'}>
@@ -91,7 +87,11 @@ const Navbar = () => {
                 key={index}
                 className='text-lg font-semibold hover:text-dark w-20 rounded-md flex justify-center'
               >
-                <NavLink href={link.href} title={link.title} />
+                <NavLink
+                  href={link.href}
+                  title={link.title}
+                  sectionId={link.sectionId}
+                />
               </li>
             ))}
           </ul>
