@@ -16,3 +16,15 @@ export interface PropsServiceNumbers {
   number: string
   text: string
 }
+
+export interface PropsEmailButton {
+  email: string
+  subject?: string
+  text: string
+}
+
+export interface PropsStanInput {
+  placeholder: string
+  button: boolean
+  nameButton: string
+}

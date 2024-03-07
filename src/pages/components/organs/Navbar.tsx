@@ -1,21 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import NavLink from './NavLink'
+import NavLink from '../atoms/NavLink'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import { IconButton } from '@mui/material'
-import MenuOpen from './MenuOpen'
+import MenuOpen from '../atoms/MenuOpen'
 
 const navLinks = [
-  { title: 'Sobre', href: '#sobre' },
-  { title: 'Serviços', href: '#servicos' },
-  { title: 'Contato', href: '#contato' },
-  { title: 'Newsletter', href: '#newsletter' },
+  { title: 'Sobre', href: '/#sobre' },
+  { title: 'Serviços', href: '/#servicos' },
+  { title: 'Contato', href: '/#contato' },
+  { title: 'Newsletter', href: '/#newsletter' },
 ]
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const [headerBgColor, setHeaderBgColor] = useState('transparent')
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,8 +30,34 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const [headerTextColor, setHeaderTextColor] = useState('text-white') // Altere a cor do texto conforme necessário
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section')
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect()
+        if (rect.top <= 0 && rect.bottom >= 0) {
+          // Section is in view
+          const bgColor = section.dataset.bgColor
+          const textColor = section.dataset.textColor
+          if (bgColor) {
+            setHeaderBgColor(bgColor)
+            setHeaderTextColor(textColor || 'text-white') // Defina uma cor de texto padrão se não houver especificada na seção
+          }
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav className='w-full mx-auto px-12 md:px-24  lg:px-48  '>
+    <nav
+      className={` w-full fixed z-20 top-0 px-12 md:px-24  lg:px-48 `}
+      style={{ backgroundColor: headerBgColor }}
+    >
       <div className='flex flex-wrap items-center justify-between mx-auto py-8'>
         <Link href={'/'}>
           <Image

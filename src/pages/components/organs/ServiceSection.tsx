@@ -1,8 +1,8 @@
 import React from 'react'
-import ServiceInfo from './ServiceInfos'
-import ServiceNumbers from './ServiceNumbers'
-import MyCarousel from './ServiceCarousel'
-import ServiceCarousel from './ServiceCarousel'
+import ServiceInfo from '../molecules/ServiceInfos'
+import ServiceNumbers from '../molecules/ServiceNumbers'
+import MyCarousel from '../molecules/ServiceCarousel'
+import ServiceCarousel from '../molecules/ServiceCarousel'
 
 const infos = [
   {
@@ -31,7 +31,10 @@ const numbers = [
 
 const ServiceSection = () => {
   return (
-    <section className='w-full mx-auto px-12 py-6 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-white'>
+    <section
+      id='servicos'
+      className='w-full mx-auto px-12 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-white'
+    >
       <div className='flex justify-center flex-col items-center lg:items-start lg:h-section w-full my-20 md:my-16 lg:my-0 gap-20 text-dark'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36 w-full'>
           {infos.map((info, index) => (
@@ -53,7 +56,7 @@ const ServiceSection = () => {
           ))}
         </div>
       </div>
-      <div className='w-full '>
+      <div className='w-full pb-12 '>
         <ServiceCarousel />
       </div>
     </section>

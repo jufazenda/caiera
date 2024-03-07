@@ -26,8 +26,16 @@ const config: Config = {
         xl: '1500px',
         '2xl': '2000px',
       },
+      width: {
+        section: '70vh',
+        600: '600px',
+        500: '500px',
+        400: '400px',
+      },
       height: {
         section: '70vh',
+        'mini-footer': '40vh',
+        footer: '30vh',
         500: '500px',
         400: '400px',
       },
@@ -35,6 +43,11 @@ const config: Config = {
         title: '2.5rem',
       },
       maxWidth: {
+        '30%': '30%',
+        '50%': '50%',
+      },
+      margin: {
+        '1/4': '25%',
         '30%': '30%',
         '50%': '50%',
       },

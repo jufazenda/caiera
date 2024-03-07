@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropsMenuOpen } from './Props'
+import { PropsMenuOpen } from '../Props'
 import NavLink from './NavLink'
 
 const MenuOpen = ({ links }: PropsMenuOpen) => {

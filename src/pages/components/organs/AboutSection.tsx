@@ -3,7 +3,10 @@ import React from 'react'
 
 const AboutSection = () => {
   return (
-    <section className='w-full px-12 py-10 md:px-24 md:py-12  bg-dark flex justify-center flex-col items-center gap-12 lg:gap-20 lg:h-section'>
+    <section
+      id='sobre'
+      className='w-full px-12 py-10 md:px-24 md:py-12 origin-bottom bg-dark flex justify-center flex-col items-center gap-12 lg:gap-20 lg:h-section'
+    >
       <div className='w-full flex justify-center'>
         <Image
           src='/images/logo_text.png'
