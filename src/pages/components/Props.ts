@@ -1,5 +1,5 @@
 // @ts-nocheck
-// pages/components/Props.tsx
+// pages/components/Props.ts
 
 export interface PropsNavLink {
   href: string
