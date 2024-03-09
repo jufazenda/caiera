@@ -4,17 +4,17 @@ import { PropsNavLink } from '../../../types/Props'
 
 const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
   const [active, setActive] = useState(false)
-  const [colorClass, setColorClass] = useState('text-white')
+  const [colorClass, setColorClass] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
       if (sectionId) {
-        const section = document.getElementById(sectionId)
+        const section = document?.getElementById(sectionId)
         if (section) {
           const rect = section?.getBoundingClientRect()
           if (
-            rect.top <= window.innerHeight * 0.2 &&
-            rect.bottom >= window.innerHeight * 0.2
+            rect?.top <= window?.innerHeight * 0.2 &&
+            rect?.bottom >= window?.innerHeight * 0.2
           ) {
             setActive(true)
           } else {
@@ -39,8 +39,7 @@ const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
 
   return (
     <Link
-      href={href}
-      passHref
+      href={href ?? ''}
       scroll={false}
       className={active ? colorClass : 'text-white'}
     >
