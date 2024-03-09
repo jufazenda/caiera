@@ -33,9 +33,9 @@ const ServiceSection = () => {
   return (
     <section
       id='servicos'
-      className='w-full mx-auto px-12 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-white text-dark'
+      className='w-full mx-auto  md:py-12 lg:px-48 lg:py-16 bg-white text-dark'
     >
-      <div className='flex justify-center flex-col items-center lg:items-start lg:h-section w-full my-20 md:my-16 lg:my-0 gap-20 text-dark'>
+      <div className='flex justify-center flex-col px-12 md:px-24 items-center lg:items-start lg:h-section w-full my-20 md:my-16 lg:my-0 gap-20 text-dark'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36 w-full'>
           {infos.map((info, index) => (
             <ServiceInfo

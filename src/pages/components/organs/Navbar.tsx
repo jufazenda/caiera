@@ -17,6 +17,7 @@ const navLinks = [
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [header, setHeader] = useState(false)
+  const [navColor, setNavColor] = useState('')
 
   const scrollHeader = () => {
     if (window.scrollY >= 100) {
@@ -27,34 +28,29 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    if (header) {
+      setNavColor('bg-shadow-black')
+    } else if (navbarOpen) {
+      setNavColor('bg-shadow-darker')
+    } else {
+      setNavColor('bg-transparent')
+    }
+
     window.addEventListener('scroll', scrollHeader)
 
     return () => {
-      window.addEventListener('scroll', scrollHeader)
+      window.removeEventListener('scroll', scrollHeader)
     }
-  }, [])
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobileView = window.innerWidth < 1200
-      if (!isMobileView) {
-        setNavbarOpen(false)
-      }
-    }
-    window.addEventListener('resize', handleResize)
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
+  }, [header, navbarOpen])
   return (
     <nav
-      className={
-        header
-          ? 'bg-shadow-black w-full fixed z-20 top-0 px-12 md:px-24 lg:px-48 transition-colors duration-400'
-          : 'bg-transparent w-full fixed z-20 top-0 px-12 md:px-24 lg:px-48 transition-colors duration-400'
-      }
+      className={` ${navColor} w-full fixed z-20 top-0 px-5 md:px-24 lg:px-48 transition-colors duration-400`}
     >
-      <div className='flex flex-wrap items-center justify-between mx-auto py-8'>
+      <div
+        className={
+          'flex flex-wrap items-center justify-between mx-auto py-5 md:py-8'
+        }
+      >
         <Link href={'/'}>
           <Image
             src='/images/caiera.png'
@@ -80,7 +76,7 @@ const Navbar = () => {
             </IconButton>
           )}
         </div>
-        <div className='menu hidden lg:flex lg:w-auto ' id='navbar'>
+        <div className={'hidden menu lg:flex lg:w-auto '} id='navbar'>
           <ul className='flex gap-14'>
             {navLinks.map((link, index) => (
               <li

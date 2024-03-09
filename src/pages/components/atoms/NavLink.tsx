@@ -4,26 +4,36 @@ import { PropsNavLink } from '../Props'
 
 const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
   const [active, setActive] = useState(false)
+  const [colorClass, setColorClass] = useState('text-white')
 
   useEffect(() => {
     const handleScroll = () => {
-      const section = document.getElementById(sectionId)
-      if (section) {
-        const rect = section.getBoundingClientRect()
-        if (
-          rect.top <= window.innerHeight * 0.2 &&
-          rect.bottom >= window.innerHeight * 0.2
-        ) {
-          setActive(true)
-        } else {
-          setActive(false)
+      if (sectionId) {
+        const section = document.getElementById(sectionId)
+        if (section) {
+          const rect = section.getBoundingClientRect()
+          if (
+            rect.top <= window.innerHeight * 0.2 &&
+            rect.bottom >= window.innerHeight * 0.2
+          ) {
+            setActive(true)
+          } else {
+            setActive(false)
+          }
         }
       }
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
+    }
+  }, [sectionId])
+
+  useEffect(() => {
+    if (sectionId === 'sobre' || sectionId === 'newsletter') {
+      setColorClass('text-purple')
+    } else {
+      setColorClass('text-dark')
     }
   }, [sectionId])
 
@@ -32,7 +42,7 @@ const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
       href={href}
       passHref
       scroll={false}
-      className={active ? 'text-dark' : 'text-white'}
+      className={active ? colorClass : 'text-white'}
     >
       {title}
     </Link>

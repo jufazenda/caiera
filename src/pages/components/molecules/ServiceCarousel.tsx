@@ -36,7 +36,7 @@ const ServiceCarousel: React.FC = () => {
           />
         </div>
 
-        <span className='text-dark sm-xl:px-32 md:px-40 lg:px-96 text-center py-16 '>
+        <span className='text-dark px-24 sm-xl:px-32 md:px-40 lg:px-96 text-center py-16 '>
           {item.text}
         </span>
       </div>
@@ -46,6 +46,7 @@ const ServiceCarousel: React.FC = () => {
   return (
     <Carousel
       navButtonsAlwaysVisible
+      autoPlay={false}
       navButtonsProps={{
         style: {
           borderRadius: '50%',

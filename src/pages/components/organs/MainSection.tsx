@@ -19,11 +19,11 @@ const MainSection = () => {
       }}
       initial='hidden'
       animate='show'
-      className='flex justify-between flex-col w-full mx-auto px-10 py-6 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-gradient-to-br from-purple to-pink relative '
+      className='flex justify-between flex-col w-full px-10 py-6 md:px-24 md:py-12 lg:px-48 lg:py-16 bg-gradient-to-br from-purple to-pink relative '
     >
       <motion.div
         variants={variantMotion}
-        className='flex flex-col gap-5 justify-center items-center lg:items-start h-section mb-24 md:mb-16 lg:mb-10'
+        className='flex flex-col gap-5 justify-center items-center lg:items-start h-screen md:h-section mb-24 md:mb-16 lg:mb-10'
       >
         <h1 className='text-white mb-4 text-title lg:text-6xl font-bold text-center lg:text-start'>
           Caiera Dev
