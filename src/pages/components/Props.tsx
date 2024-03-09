@@ -1,3 +1,6 @@
+// @ts-nocheck
+// pages/components/Props.tsx
+
 export interface PropsNavLink {
   href: string
   title: string
