@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 import React from 'react'
-import { PropsEmailButton } from '../Props'
+import { PropsEmailButton } from '../../../types/Props'
 
 const EmailButton = ({ email, subject, text }: PropsEmailButton) => {
   const handleEmailClick = () => {

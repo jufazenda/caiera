@@ -4,7 +4,7 @@
 export interface PropsNavLink {
   href: string
   title: string
-  sectionId?: string
+  sectionId: string
 }
 
 export interface PropsMenuOpen {

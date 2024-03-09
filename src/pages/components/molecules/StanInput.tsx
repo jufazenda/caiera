@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PropsStanInput } from '../Props'
+import { PropsStanInput } from '../../../types/Props'
 import { Button, Divider, InputBase, Paper } from '@mui/material'
 
 const StanInput = ({

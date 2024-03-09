@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropsServiceNumbers } from '../Props'
+import { PropsServiceNumbers } from '../../../types/Props'
 
 const ServiceNumbers = ({ number, text }: PropsServiceNumbers) => {
   return (

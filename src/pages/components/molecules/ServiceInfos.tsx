@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Raleway } from 'next/font/google'
-import { PropsServiceInfo } from '../Props'
+import { PropsServiceInfo } from '../../../types/Props'
 
 const raleway = Raleway({ subsets: ['latin'], weight: '500' })
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { PropsNavLink } from '../Props'
+import { PropsNavLink } from '../../../types/Props'
 
 const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
   const [active, setActive] = useState(false)
@@ -11,7 +11,7 @@ const NavLink = ({ href, title, sectionId }: PropsNavLink) => {
       if (sectionId) {
         const section = document.getElementById(sectionId)
         if (section) {
-          const rect = section.getBoundingClientRect()
+          const rect = section?.getBoundingClientRect()
           if (
             rect.top <= window.innerHeight * 0.2 &&
             rect.bottom >= window.innerHeight * 0.2
